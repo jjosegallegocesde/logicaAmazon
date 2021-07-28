@@ -53,5 +53,22 @@ function convertiraPesos(precioDolares){
 
 //FLUJO COMPRA
 
+//1. Obtener el costo del casillero de una compra
+//SUPONER QUE EL USUARIO ELIGE PS5
+let pesoPS5=consolas.pesos[0];
+let cantidad=1;
+let costoCasillero=calcularCostoCasillero(pesoPS5,cantidad);
+
+//2. Obtener el costo del producto+impuestos
+let precioPS5=consolas.precios[0];
+let costoProductoImpuestos=calcularCostoImpuestos(precioPS5,cantidad);
+
+//3. Obtener el total de la compra 
+let totalCompra=costoCasillero+costoProductoImpuestos;
+console.log(`El costo total de la compra fue de: $${totalCompra} USD`);
+
+//4. Obtener el total de la compra en PESOS colombianos
+let totalPesos=convertiraPesos(totalCompra);
+console.log(`El costo total de la compra fue de: $${totalPesos} COP`);
     
 
